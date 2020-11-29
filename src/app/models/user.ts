@@ -5,12 +5,12 @@ export class User {
     company_name:string;
     email:string;
     password:string;
-    menus:Array<Menu> = new Array<Menu>();
+    menu:Array<Menu> = new Array<Menu>();
 
-    constructor(company_name?:string,email?:string,password:string,menus?:Array<Menu>){
+    constructor(company_name?:string,email?:string,password?:string,menu?:Array<Menu>){
       this.company_name = company_name;
       this.email = email;
       this.password = password;
-      this.menus = menus;
+      this.menu = menu;
     }
 }

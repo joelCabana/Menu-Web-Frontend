@@ -4,11 +4,11 @@ export class Category {
     _id:string;
     name:string;
     available:boolean;
-    products: Array<Product> = new Array<Product>();
+    product: Array<Product> = new Array<Product>();
 
-    constructor(name?:string,available?:boolean,products?:Array<Product>){
+    constructor(name?:string,available?:boolean,product?:Array<Product>){
         this.name = name;
         this.available = available;
-        this.products = products;
+        this.product = product;
     }
 }

@@ -1,6 +1,6 @@
 <div class="row mt-4">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-         Agregar
+    <button type="button" class="btn btn-sm ml-3" data-toggle="modal" data-target="#exampleModal">
+         <i class="material-icons">add</i>
     </button>
 </div>
 
@@ -18,29 +18,37 @@
             <form>
                 <div class="form-group">
                   <label for="nombre">Nombre de Menú</label>
-                  <input type="text" class="form-control" id="nombre" placeholder="Ingresa el nombre del menú">
+                  <input type="text" [(ngModel)]="menu.name"  class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre del menú">
                 </div>
                 <div class="form-group">
                   <label for="descripcion">Descripcion</label>
-                  <textarea type="text" class="form-control" id="descripcion" placeholder="Ingresa la descripcion del menú" rows="3"></textarea>
+                  <textarea type="text"  [(ngModel)]="menu.description" class="form-control" id="descripcion" name="descripcion" placeholder="Ingresa la descripcion del menú" [ngModelOptions]="{standalone: true}"></textarea>
                 </div>
-              </form>
+            </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" class="btn btn-primary" (click)="addMenu()">Guardar</button>
         </div>
       </div>
     </div>
 </div>
 
 <div class="row mt-2">
-    <div class="col-sm-4">
+    <div class="col-sm-4 mt-3" *ngFor="let menu of user.menu">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">{{menu.name}}</h5>
+          <p class="card-text">{{menu.description}}</p>
+          <button class="btn btn-waring btn-sm">
+            <i class="material-icons">edit</i>
+          </button>
+          <button class="btn btn-waring btn-sm ml-2">
+            <i class="material-icons">delete</i>
+          </button>
+          <button class="btn btn-waring btn-sm ml-2">
+            <i class="material-icons">chevron_right</i>
+          </button>
         </div>
       </div>
     </div>
