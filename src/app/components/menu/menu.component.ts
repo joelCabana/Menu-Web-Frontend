@@ -35,9 +35,20 @@ export class MenuComponent implements OnInit {
 
    addMenu(){
     this.user.menu.push(this.menu);
+      this.updateUser();
+      this.menu = new Menu();
+   }
+
+  selectUser(menu:Menu){
+    let auxMenu = new Menu();
+    Object.assign(auxMenu, menu);
+    this.menu = auxMenu;
+  }
+
+  updateUser(){
     this._userServices.updateUser(this.user).subscribe(
       (result)=>{
-          alert("Pasaje Modificado");
+          alert("Pasaje Actualizadp");
           this.getUser();
       },
       (error)=>{
@@ -45,14 +56,25 @@ export class MenuComponent implements OnInit {
       }
     );
     this.menu = new Menu();
-   }
+  }
 
+  deleteMenu(menu:Menu){
+    var indice = this.user.menu.findIndex((element)=> element._id == menu._id);
+    this.user.menu.splice(indice,1);
+    this.updateUser();
+  }
 
-   test(){
-     console.log("le diste click a un div");
-   }
-
-
+  updateMenu(menu:Menu){
+    var indice = this.user.menu.findIndex((element)=> element._id == menu._id);
+    this.user.menu.splice(indice,1,menu);
+    this.updateUser();
+  }
+  
+  cleanField(){
+    this.menu = new Menu();
+  }
+  
+  
 
   ngOnInit(): void {
   }

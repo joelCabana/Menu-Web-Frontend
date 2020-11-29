@@ -1,11 +1,11 @@
 <div class="row mt-4">
-    <button type="button" class="btn btn-sm ml-3" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn btn-sm ml-3" data-toggle="modal" data-target="#MenuModal">
          <i class="material-icons">add</i>
     </button>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Menu-->
+<div class="modal fade" id="MenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -17,38 +17,51 @@
         <div class="modal-body">
             <form>
                 <div class="form-group">
+                  <!--Menu name-->
                   <label for="nombre">Nombre de Menú</label>
                   <input type="text" [(ngModel)]="menu.name"  class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre del menú">
                 </div>
                 <div class="form-group">
+                  <!--Menu description-->
                   <label for="descripcion">Descripcion</label>
                   <textarea type="text"  [(ngModel)]="menu.description" class="form-control" id="descripcion" name="descripcion" placeholder="Ingresa la descripcion del menú" [ngModelOptions]="{standalone: true}"></textarea>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary" (click)="addMenu()">Guardar</button>
+          <!--Buttons-->
+          <button type="button" class="btn btn-secondary" (click)="cleanField()" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" *ngIf="menu._id == null" (click)="addMenu()">Guardar</button>
+          <button type="button" class="btn btn-primary"   *ngIf="menu._id != null" (click)="updateMenu(menu)">Actualizar</button>
         </div>
       </div>
     </div>
 </div>
 
+<!--Menu Cards-->
 <div class="row mt-2">
     <div class="col-sm-4 mt-3" *ngFor="let menu of user.menu">
       <div class="card">
         <div class="card-body">
+          <!--Menu name-->
           <h5 class="card-title">{{menu.name}}</h5>
+          <!--Menu description-->
           <p class="card-text">{{menu.description}}</p>
-          <button class="btn btn-waring btn-sm">
-            <i class="material-icons">edit</i>
-          </button>
-          <button class="btn btn-waring btn-sm ml-2">
-            <i class="material-icons">delete</i>
-          </button>
-          <button class="btn btn-waring btn-sm ml-2">
-            <i class="material-icons">chevron_right</i>
-          </button>
+          <!--Menu image-->
+          <img src="../../../assets/img/img prueba.jpg" alt="" class="img-fluid">
+          <!--Buttons-->
+          <div class="mt-2">
+            <button class="btn btn-waring btn-sm" (click)="selectUser(menu)" data-toggle="modal" data-target="#MenuModal">
+              <i class="material-icons" >edit</i>
+            </button>
+            <button class="btn btn-waring btn-sm ml-2" (click)="deleteMenu(menu)">
+              <i class="material-icons">delete</i>
+            </button>
+            <button class="btn btn-waring btn-sm ml-2"  [routerLink]="['category']">
+              <i class="material-icons">chevron_right</i>
+            </button>
+          </div>
+         
         </div>
       </div>
     </div>
