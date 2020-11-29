@@ -1,1 +1,49 @@
-<p>aqui va el menu wachooos</p>
+<div class="row mt-4">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+         Agregar
+    </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Crear Menú</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="nombre">Nombre de Menú</label>
+                  <input type="text" class="form-control" id="nombre" placeholder="Ingresa el nombre del menú">
+                </div>
+                <div class="form-group">
+                  <label for="descripcion">Descripcion</label>
+                  <textarea type="text" class="form-control" id="descripcion" placeholder="Ingresa la descripcion del menú" rows="3"></textarea>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+
